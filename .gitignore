@@ -1,5 +1,5 @@
 .env
-volumes/db/data/
+volumes/db/data/*
 volumes/db/*.log
 
 *.log

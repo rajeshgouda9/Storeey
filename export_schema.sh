@@ -5,11 +5,12 @@ set -e
 CONTAINER_NAME="supabase-db"
 OUTPUT_FILE="schema.sql"
 
-echo "Exporting schema (DDL only) from $CONTAINER_NAME..."
+echo "Exporting schema (DDL only) from $CONTAINER_NAME (only 'public' schema)..."
 
 docker exec -t $CONTAINER_NAME pg_dump \
   -U postgres \
   --schema-only \
+  --schema=public \
   --no-owner \
   --no-privileges \
   --quote-all-identifiers postgres > $OUTPUT_FILE
